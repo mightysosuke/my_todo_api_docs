@@ -9,13 +9,13 @@ services:
     ports:
       - "8012:8080"
     volumes:
-      - ./api/urstudx_api.yml:/urstudx_api.yml
+      - ./api/openapi/openapi.yaml:/openapi.yaml
     environment:
-      SWAGGER_JSON: /urstudx_api.yml
+      SWAGGER_JSON: /openapi.yaml
   swagger-api:
     image: stoplight/prism:3
     ports:
       - "4012:4010"
-    command: mock -h 0.0.0.0 /urstudx_api.yml
+    command: mock -h 0.0.0.0 /openapi.yaml
     volumes:
-      - ./api/urstudx_api.yml:/urstudx_api.yml
+      - ./api/openapi/openapi.yaml:/openapi.yaml

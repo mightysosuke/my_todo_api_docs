@@ -13,16 +13,7 @@ tags:
   description: ToDo
 paths:
   /v1/todos:
-    get:
-      security:
-        - Bearer: []
-      tags:
-        - todo
-      summary: ToDo一覧
-      operationId: getTodos
-      responses:
-        "200":
-          description: OK
+    $ref: ./paths/todo.yml
 components:
   securitySchemes:
     Bearer:
@@ -30,21 +21,6 @@ components:
       scheme: bearer
       description: Credentials or access token for API
   schemas:
-    Todo:
-      type: object
-      description: ToDo
-      required:
-        - title
-      properties:
-        title:
-          type: string
-          description: タイトル
-          example: やること
-        content:
-          type: string
-          description: 内容
-          example: 料理を作る
-          nullable: true
     NotAuthorizedError:
       description: 認証不可エラー
       type: object
