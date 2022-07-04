@@ -6,4 +6,11 @@ docker_build:
 	$(DOCKER_COMPOSE) build --no-cache
 
 docker_start:
-	$(DOCKER_COMPOSE) up
+	$(DOCKER_COMPOSE) up -d
+
+docker_logs:
+	$(DOCKER_COMPOSE) logs -f
+
+openapi_generate:
+	openapi-generator-cli generate -g openapi-yaml -o api -i api/todo_api.yml
+

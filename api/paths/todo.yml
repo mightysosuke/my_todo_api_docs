@@ -1,0 +1,16 @@
+get:
+  security:
+    - Bearer: []
+  tags:
+    - todo
+  summary: ToDo一覧
+  operationId: getTodos
+  responses:
+    "200":
+      description: OK
+      content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../../api/schemas/Todo.yml

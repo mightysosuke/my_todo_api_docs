@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  description: MyTODO OpenAPI Document
+  title: MyTODO OpenAPI
+  version: 1.0.0
+servers:
+- description: Mock Server
+  url: http://localhost:4012
+- description: localhost
+  url: http://localhost:8080
+tags:
+- description: ToDo
+  name: todo
+paths:
+  /v1/todos:
+    get:
+      operationId: getTodos
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Todo'
+                type: array
+          description: OK
+      security:
+      - Bearer: []
+      summary: ToDo一覧
+      tags:
+      - todo
+components:
+  schemas:
+    NotAuthorizedError:
+      description: 認証不可エラー
+      properties:
+        message:
+          description: JWT認証などの認証エラー
+          example: Not authorized.
+          type: string
+      required:
+      - message
+      type: object
+    NotFoundError:
+      description: 存在しませんエラー
+      properties:
+        message:
+          description: GETしたい情報が見つからないエラー
+          example: Your requested Item is not found
+          type: string
+      required:
+      - message
+      type: object
+    Todo:
+      description: ToDo
+      example:
+        title: やること
+        content: 料理を作る
+      properties:
+        title:
+          description: タイトル
+          example: やること
+          type: string
+        content:
+          description: 内容
+          example: 料理を作る
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+  securitySchemes:
+    Bearer:
+      description: Credentials or access token for API
+      scheme: bearer
+      type: http
