@@ -3,6 +3,7 @@ description: 新規登録リクエスト
 required:
   - nickname
   - email
+  - icon
 properties:
   nickname:
     type: string
@@ -12,9 +13,8 @@ properties:
     type: string
     description: メールアドレス
     example: test@example.com
-  # アイコンをmultipart/formdataにする
   icon:
     type: string
+    format: binary
     description: アイコン
     example: hoge.png
-    nullable: true

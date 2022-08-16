@@ -9,7 +9,7 @@ post:
     description: ユーザー新規登録リクエスト
     required: true
     content:
-      application/json:
+      multipart/form-data:
         schema:
           $ref: ../../api/schemas/SignUpRequest.yml
   responses:
