@@ -1,0 +1,17 @@
+post:
+  security:
+    - Bearer: []
+  tags:
+    - user
+  summary: ユーザー新規登録
+  operationId: postUserSignUp
+  requestBody:
+    description: ユーザー新規登録リクエスト
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../api/schemas/SignUpRequest.yml
+  responses:
+    "201":
+      description: Created

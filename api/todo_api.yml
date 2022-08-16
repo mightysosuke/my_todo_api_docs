@@ -6,12 +6,16 @@ info:
 servers:
   - url: http://localhost:4012
     description: Mock Server
-  - url: http://localhost:8080
+  - url: http://localhost:3010
     description: localhost
 tags:
+- name: user
+  description: ユーザー
 - name: todo
   description: ToDo
 paths:
+  /v1/users/sign_up:
+    $ref: ./paths/user.yml
   /v1/todos:
     $ref: ./paths/todo.yml
 components:
