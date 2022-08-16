@@ -19,7 +19,7 @@ paths:
       operationId: postUserSignUp
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignUpRequest'
         description: ユーザー新規登録リクエスト
@@ -73,10 +73,6 @@ components:
       type: object
     SignUpRequest:
       description: 新規登録リクエスト
-      example:
-        nickname: ゆあろー
-        icon: hoge.png
-        email: test@example.com
       properties:
         nickname:
           description: ニックネーム
@@ -89,10 +85,11 @@ components:
         icon:
           description: アイコン
           example: hoge.png
-          nullable: true
+          format: binary
           type: string
       required:
       - email
+      - icon
       - nickname
       type: object
     Todo:
