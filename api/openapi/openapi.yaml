@@ -7,11 +7,31 @@ servers:
 - description: Mock Server
   url: http://localhost:4012
 - description: localhost
-  url: http://localhost:8080
+  url: http://localhost:3010
 tags:
+- description: ユーザー
+  name: user
 - description: ToDo
   name: todo
 paths:
+  /v1/users/sign_up:
+    post:
+      operationId: postUserSignUp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpRequest'
+        description: ユーザー新規登録リクエスト
+        required: true
+      responses:
+        "201":
+          description: Created
+      security:
+      - Bearer: []
+      summary: ユーザー新規登録
+      tags:
+      - user
   /v1/todos:
     get:
       operationId: getTodos
@@ -50,6 +70,30 @@ components:
           type: string
       required:
       - message
+      type: object
+    SignUpRequest:
+      description: 新規登録リクエスト
+      example:
+        nickname: ゆあろー
+        icon: hoge.png
+        email: test@example.com
+      properties:
+        nickname:
+          description: ニックネーム
+          example: ゆあろー
+          type: string
+        email:
+          description: メールアドレス
+          example: test@example.com
+          type: string
+        icon:
+          description: アイコン
+          example: hoge.png
+          nullable: true
+          type: string
+      required:
+      - email
+      - nickname
       type: object
     Todo:
       description: ToDo

@@ -1,0 +1,20 @@
+type: object
+description: 新規登録リクエスト
+required:
+  - nickname
+  - email
+properties:
+  nickname:
+    type: string
+    description: ニックネーム
+    example: ゆあろー
+  email:
+    type: string
+    description: メールアドレス
+    example: test@example.com
+  # アイコンをmultipart/formdataにする
+  icon:
+    type: string
+    description: アイコン
+    example: hoge.png
+    nullable: true
