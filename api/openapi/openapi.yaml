@@ -32,6 +32,21 @@ paths:
       summary: ユーザー新規登録
       tags:
       - user
+  /v1/users/me:
+    get:
+      operationId: getUserMe
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMe'
+          description: OK
+      security:
+      - Bearer: []
+      summary: ユーザー自分情報取得
+      tags:
+      - user
   /v1/todos:
     get:
       operationId: getTodos
@@ -73,6 +88,31 @@ components:
       type: object
     SignUpRequest:
       description: 新規登録リクエスト
+      properties:
+        nickname:
+          description: ニックネーム
+          example: ゆあろー
+          type: string
+        email:
+          description: メールアドレス
+          example: test@example.com
+          type: string
+        icon:
+          description: アイコン
+          example: hoge.png
+          format: binary
+          type: string
+      required:
+      - email
+      - icon
+      - nickname
+      type: object
+    UserMe:
+      description: ユーザー自分情報
+      example:
+        nickname: ゆあろー
+        icon: hoge.png
+        email: test@example.com
       properties:
         nickname:
           description: ニックネーム
