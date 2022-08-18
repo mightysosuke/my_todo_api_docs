@@ -1,0 +1,14 @@
+get:
+  security:
+    - Bearer: []
+  tags:
+    - user
+  summary: ユーザー自分情報取得
+  operationId: getUserMe
+  responses:
+    "200":
+      description: OK
+      content:
+          application/json:
+            schema:
+              $ref: ../../schemas/users/UserMe.yml

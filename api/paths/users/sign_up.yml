@@ -11,7 +11,7 @@ post:
     content:
       multipart/form-data:
         schema:
-          $ref: ../../api/schemas/SignUpRequest.yml
+          $ref: ../../schemas/users/SignUpRequest.yml
   responses:
     "201":
       description: Created

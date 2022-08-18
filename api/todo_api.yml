@@ -15,9 +15,11 @@ tags:
   description: ToDo
 paths:
   /v1/users/sign_up:
-    $ref: ./paths/user.yml
+    $ref: ./paths/users/sign_up.yml
+  /v1/users/me:
+    $ref: ./paths/users/me.yml
   /v1/todos:
-    $ref: ./paths/todo.yml
+    $ref: ./paths/todos/list.yml
 components:
   securitySchemes:
     Bearer:

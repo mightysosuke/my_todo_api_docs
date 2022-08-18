@@ -1,0 +1,20 @@
+type: object
+description: ユーザー自分情報
+required:
+  - nickname
+  - email
+  - icon
+properties:
+  nickname:
+    type: string
+    description: ニックネーム
+    example: ゆあろー
+  email:
+    type: string
+    description: メールアドレス
+    example: test@example.com
+  icon:
+    type: string
+    format: binary
+    description: アイコン
+    example: hoge.png

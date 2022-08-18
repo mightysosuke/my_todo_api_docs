@@ -13,4 +13,4 @@ get:
             schema:
               type: array
               items:
-                $ref: ../../api/schemas/Todo.yml
+                $ref: ../../schemas/todos/Todo.yml
