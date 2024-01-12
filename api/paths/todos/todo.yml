@@ -20,3 +20,13 @@ get:
           application/json:
             schema:
               $ref: ../../schemas/todos/Todo.yml
+delete:
+  security:
+    - Bearer: []
+  tags:
+    - todo
+  summary: ToDo削除
+  operationId: deleteTodo
+  responses:
+    "204":
+      description: No Content
