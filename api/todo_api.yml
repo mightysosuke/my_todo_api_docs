@@ -20,6 +20,8 @@ paths:
     $ref: ./paths/users/me.yml
   /v1/todos:
     $ref: ./paths/todos/list.yml
+  /v1/todos/{id}:
+    $ref: ./paths/todos/show.yml
 components:
   securitySchemes:
     Bearer:

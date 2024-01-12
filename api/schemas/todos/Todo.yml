@@ -1,8 +1,13 @@
 type: object
 description: ToDo
 required:
+  - id
   - title
 properties:
+  id:
+    type: string
+    description: ID
+    example: 01HJSQYWS4NMYV4ZV9GHQJ5P72
   title:
     type: string
     description: タイトル

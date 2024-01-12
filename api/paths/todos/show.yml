@@ -1,0 +1,22 @@
+parameters:
+  - schema:
+      type: string
+    name: id
+    description: ToDoID
+    in: path
+    required: true
+    example: 01HJSQYWS4NMYV4ZV9GHQJ5P72
+get:
+  security:
+    - Bearer: []
+  tags:
+    - todo
+  summary: ToDo詳細取得
+  operationId: getTodo
+  responses:
+    "200":
+      description: OK
+      content:
+          application/json:
+            schema:
+              $ref: ../../schemas/todos/Todo.yml
