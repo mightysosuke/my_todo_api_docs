@@ -64,6 +64,37 @@ paths:
       summary: ToDo一覧
       tags:
       - todo
+  /v1/todos/{id}:
+    get:
+      operationId: getTodo
+      parameters:
+      - description: ToDoID
+        example: 01HJSQYWS4NMYV4ZV9GHQJ5P72
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+          description: OK
+      security:
+      - Bearer: []
+      summary: ToDo詳細取得
+      tags:
+      - todo
+    parameters:
+    - description: ToDoID
+      example: 01HJSQYWS4NMYV4ZV9GHQJ5P72
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
 components:
   schemas:
     NotAuthorizedError:
@@ -135,9 +166,14 @@ components:
     Todo:
       description: ToDo
       example:
+        id: 01HJSQYWS4NMYV4ZV9GHQJ5P72
         title: やること
         content: 料理を作る
       properties:
+        id:
+          description: ID
+          example: 01HJSQYWS4NMYV4ZV9GHQJ5P72
+          type: string
         title:
           description: タイトル
           example: やること
@@ -148,6 +184,7 @@ components:
           nullable: true
           type: string
       required:
+      - id
       - title
       type: object
   securitySchemes:
