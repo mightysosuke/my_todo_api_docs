@@ -64,6 +64,23 @@ paths:
       summary: ToDo一覧
       tags:
       - todo
+    post:
+      operationId: postTodos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoPostRequest'
+        description: ToDo作成リクエスト
+        required: true
+      responses:
+        "201":
+          description: Created
+      security:
+      - Bearer: []
+      summary: ToDo作成
+      tags:
+      - todo
   /v1/todos/{id}:
     get:
       operationId: getTodo
@@ -185,6 +202,24 @@ components:
           type: string
       required:
       - id
+      - title
+      type: object
+    TodoPostRequest:
+      description: ToDo作成リクエスト
+      example:
+        title: やること
+        content: 料理を作る
+      properties:
+        title:
+          description: タイトル
+          example: やること
+          type: string
+        content:
+          description: 内容
+          example: 料理を作る
+          nullable: true
+          type: string
+      required:
       - title
       type: object
   securitySchemes:

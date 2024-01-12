@@ -1,0 +1,14 @@
+type: object
+description: ToDo作成リクエスト
+required:
+  - title
+properties:
+  title:
+    type: string
+    description: タイトル
+    example: やること
+  content:
+    type: string
+    description: 内容
+    example: 料理を作る
+    nullable: true

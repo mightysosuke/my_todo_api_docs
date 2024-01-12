@@ -1,0 +1,33 @@
+get:
+  security:
+    - Bearer: []
+  tags:
+    - todo
+  summary: ToDo一覧
+  operationId: getTodos
+  responses:
+    "200":
+      description: OK
+      content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../../schemas/todos/Todo.yml
+post:
+  security:
+    - Bearer: []
+  tags:
+    - todo
+  summary: ToDo作成
+  operationId: postTodos
+  requestBody:
+    description: ToDo作成リクエスト
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/todos/TodoPostRequest.yml
+  responses:
+    "201":
+      description: Created

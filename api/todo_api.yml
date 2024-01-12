@@ -19,7 +19,7 @@ paths:
   /v1/users/me:
     $ref: ./paths/users/me.yml
   /v1/todos:
-    $ref: ./paths/todos/list.yml
+    $ref: ./paths/todos/todos.yml
   /v1/todos/{id}:
     $ref: ./paths/todos/show.yml
 components:
