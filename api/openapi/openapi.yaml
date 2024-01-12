@@ -82,6 +82,24 @@ paths:
       tags:
       - todo
   /v1/todos/{id}:
+    delete:
+      operationId: deleteTodo
+      parameters:
+      - description: ToDoID
+        example: 01HJSQYWS4NMYV4ZV9GHQJ5P72
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: ToDo削除
+      tags:
+      - todo
     get:
       operationId: getTodo
       parameters:
